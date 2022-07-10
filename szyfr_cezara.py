@@ -22,3 +22,6 @@ for item in word_list:
     print(item)
     if item in char_list:
         print(char_list[item])
+
+
+#print hello world
