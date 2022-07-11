@@ -2,26 +2,45 @@ import string
 
 
 letters = string.ascii_lowercase
+#lista liter alfabetu
 char_list = []
+new_word = []
+new_word_list = []
 
+
+#dodawanie liter do listy
 for char in letters:
     char_list.append(char)
 
+#inputy
+word = input("podaj słowo: ")
+shift = int(input("podaj enkrypcje: (1-9) "))
 
-word = input("Podaj słowo: ")
-encryption = input("Podaj enkrypcje: (1-9) ")
 
-
-word_list = []
-
+#dodawanie naszego słowa do listy 
 for char in word:
-    word_list.append(char)
+    new_word_list.append(char)
 
 
-for item in word_list:
-    print(item)
-    if item in char_list:
-        print(char_list[item])
 
 
-#print hello world
+
+
+def encryption(new_word_list, shift):
+
+    for char in new_word_list:
+        if char == " ":
+            new_word.append(char)
+        elif char in char_list:
+            index = char_list.index(char)
+            new_index = index + shift
+            if new_index > 26:
+                new_index -= 26
+
+            new_word.append(char_list[new_index])
+    
+    return "".join(new_word)
+
+
+
+print(encryption(new_word_list, shift))
